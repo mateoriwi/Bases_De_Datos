@@ -36,7 +36,7 @@ CREATE TABLE inscripciones (
     id_estudiante INT,
     id_curso INT,
     fecha_inscripcion DATE, 
-    calificacion_final NUMERIC, 
+    calificacion_final NUMERIC(3,2) CHECK (calificacion_final BETWEEN 0.0 AND 5.0), 
 
     CONSTRAINT fk_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante)
     CONSTRAINT fk_curso FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
